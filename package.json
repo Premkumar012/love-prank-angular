@@ -1,28 +1,15 @@
 {
   "name": "love-project",
   "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "start": "node dist/love_project/server/server.mjs",
     "test": "ng test",
+    "watch": "ng build --watch --configuration development",
     "serve:ssr:love_project": "node dist/love_project/server/server.mjs"
   },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
-  },
-  "private": true,
-  "packageManager": "npm@10.9.2",
   "dependencies": {
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
