@@ -1,0 +1,30 @@
+<div class="love-card">
+
+    <!-- Floating Hearts -->
+    <div class="hearts">
+        <span *ngFor="let h of hearts; let i = index" [style.left.%]="randomLeft(i)"
+            [style.animationDelay.s]="randomDelay(i)">
+            ❤️
+        </span>
+    </div>
+
+    <h2>Alright… who wins your heart? 😜💚</h2>
+
+    <div class="blast-text" *ngIf="showSuccess">
+        💖 Good Choice 💖
+    </div>
+    <div class="blast-text1" *ngIf="showSuccess">
+        🧿I Love You💚😽
+    </div>
+
+    <div class="container">
+        <button class="yes-btn" (click)="sayYes()">Panda's Son 💚</button>
+        <button class="no-btn" (mouseenter)="moveNoButton()" (touchstart)="moveNoButton()" #noBtn>
+            Gopal Mavan 😂
+        </button>
+    </div>
+
+
+
+    <p class="hint">If you can… try clicking Gopal Mavan 😏</p>
+</div>

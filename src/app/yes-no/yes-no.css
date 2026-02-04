@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #0f0c29;
+}
+
+/* 💖 Background */
+.love-card {
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(circle at top left, #ff6b81, transparent 50%),
+    radial-gradient(circle at bottom right, #c471ed, transparent 50%),
+    linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ❤️ Title */
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: 28px;
+  z-index: 2;
+  text-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+}
+
+/* 🤍 Glass Card */
+.container {
+  position: relative;
+  width: 480px;
+  height: 380px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    inset 0 0 40px rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+  z-index: 2;
+}
+
+/* 🔘 Buttons */
+button {
+  border: none;
+  padding: 16px 38px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: all 0.25s ease;
+  touch-action: manipulation;
+}
+
+/* 💖 YES */
+.yes-btn {
+  background: linear-gradient(135deg, #ff41dc, #ff4b2b);
+  color: white;
+  box-shadow:
+    0 10px 25px rgba(255, 75, 92, 0.6),
+    inset 0 0 12px rgba(255,255,255,0.25);
+  position: absolute;
+  right: 60%;
+    
+}
+
+.yes-btn:hover {
+  transform: scale(1.18);
+  box-shadow:
+    0 18px 38px rgba(255, 75, 92, 0.8);
+}
+
+/* 💔 NO */
+.no-btn {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.75);
+  color: #444;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: all 0.15s ease;
+}
+
+/* ✨ Hint */
+.hint {
+  margin-top: 22px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.3px;
+  z-index: 2;
+}
+
+/* ❤️ Floating Hearts */
+.hearts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -30px;
+  font-size: 24px;
+  opacity: 0;
+  filter: drop-shadow(0 0 12px rgba(255,105,180,0.8));
+  animation: floatUp 7s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-115vh) scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* 🎉 Confetti stays same */
+.confetti {
+  position: fixed;
+  top: -12px;
+  width: 10px;
+  height: 14px;
+  border-radius: 3px;
+  animation: fall linear forwards;
+  z-index: 999;
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .container {
+    width: 92%;
+    height: 280px;
+  }
+
+  h2 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  button {
+    padding: 14px 30px;
+    font-size: 15px;
+  }
+}
+
+/* 💥 Blast Text */
+/* 💖 Blast Text - STAYS */
+.blast-text {
+  position: absolute;
+  top: 30%;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 5;
+  text-align: center;
+
+  text-shadow:
+    0 0 10px rgba(255,105,180,0.9),
+    0 0 30px rgba(255,75,92,0.8),
+    0 0 60px rgba(255,75,92,0.6);
+
+  animation: blastIn 0.8s ease-out forwards;
+}
+
+.blast-text1 {
+  position: absolute;
+  top: 37%;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 5;
+  text-align: center;
+
+  text-shadow:
+    0 0 10px rgba(255,105,180,0.9),
+    0 0 30px rgba(255,75,92,0.8),
+    0 0 60px rgba(255,75,92,0.6);
+
+  animation: blastIn 0.8s ease-out forwards;
+}
+
+/* 💥 Pop-in only (no fade out) */
+@keyframes blastIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* 💥 Pop + Fade */
+@keyframes blastPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
